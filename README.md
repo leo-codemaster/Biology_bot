@@ -1,2 +1,9 @@
+# README_FILE
+
 # Biology_bot
-This Telegram bot can give you information about your heart, brain and spinal cord. In addition you can pass a little quiz to test your knowledge in understanding how all these 3 organs work. This bot was made by @derix0 (username in Telegram).   
+Bot with necessary information about organs such as: brain, heart, spinal cord. There is also a small quiz to test your knowledge.
+
+#Bot mission
+This bot is designed to provide information about the heart, brain and spinal cord, supplementing and improving knowledge that can be tested by taking a small quiz.
+
+
