@@ -10,10 +10,10 @@ This bot is designed to provide information about the heart, brain and spinal co
 Just copy the code and move it to the IDE, copy the bot token you need and paste it into the line with the phrase YOUR_BOT_TOKEN (the 7th line)
 
 # Functoins
--Global information concerning brain, heart, spinal cord
--Expanded information about each of the organs
--Quiz
--Interesting facts
+- Global information concerning brain, heart, spinal cord
+- Expanded information about each of the organs
+- Quiz
+- Interesting facts
 
 # Requirements
 - Python 3.01+
