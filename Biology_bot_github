@@ -19,7 +19,6 @@ commands = [
 
 bot.set_my_commands(commands)
 
-
 @bot.message_handler(commands=["start"])
 def greeting(message):
     bot.reply_to(message, '''Привет! Я бот, который расскажет тебе о самых важных органах твоего тела. Выбирай, что тебя интересует:
@@ -29,9 +28,7 @@ def greeting(message):
 - 🧐 Викторина (/quiz)
 - 🔬 Интересный факт (/interesting_fact)''')
 
-
 user_context = {}
-
 
 @bot.message_handler(commands=["brain"])
 def inf_brain(message):
@@ -62,9 +59,6 @@ def inf_heart(message):
 
 (Напишите цифру для выбора.)''')
 
-
-
-
 @bot.message_handler(commands=["spinal_cord"])
 def inf_spinalcord(message):
     # URL изображения
@@ -80,7 +74,6 @@ def inf_spinalcord(message):
 3. Интересные факты о спинном мозге
 
 (Напишите цифру для выбора.)''')
-
 
 @bot.message_handler(func=lambda message: message.text.isdigit())
 def handle_choice(message):
@@ -182,7 +175,6 @@ def handle_choice(message):
 Нейронные сети у каждого человека уникальны, что делает наш мозг отличным от любого другого.''',
         }
         bot.send_message(message.chat.id, brain_responses.get(choice, "Неверный выбор. Попробуйте снова."))
-
 
     elif user_topic == "heart":
         heart_responses = {
@@ -332,12 +324,6 @@ def handle_choice(message):
         }
         bot.send_message(message.chat.id, spinalcord_responses.get(choice, "Неверный выбор. Попробуйте снова."))
 
-
-
-
-
-
-
 @bot.message_handler(commands=["interesting_fact"])
 def random_fact(message):
     facts = [
@@ -405,7 +391,6 @@ def random_fact(message):
     random_fact = random.choice(facts)
     bot.reply_to(message, random_fact)
 
-
 questions = {
     "1. Какой орган отвечает за координацию движений и равновесие?": ("Спинной мозг", "Мозг", "Сердце"),
     "2. Какой из перечисленных органов является частью центральной нервной системы?": (
@@ -419,7 +404,6 @@ questions = {
 user_answers = defaultdict(lambda: iter([]))
 user_scores = defaultdict(int)
 
-
 @bot.message_handler(commands=['quiz'])
 def quiz_message(message):
     bot.send_message(message.chat.id,
@@ -428,7 +412,6 @@ def quiz_message(message):
     user_answers[userid] = iter(questions.keys())
     user_scores[userid] = 0
     ask_question(message)
-
 
 def ask_question(message):
     userid = message.chat.id
@@ -453,7 +436,6 @@ def ask_question(message):
         del user_answers[userid]
         del user_scores[userid]
 
-
 @bot.callback_query_handler(func=lambda call: call.data.startswith('quiz'))
 def answer(call):
     userid = call.message.chat.id
@@ -465,6 +447,5 @@ def answer(call):
     ask_question(call.message)
     # Удаляем кнопки после первого нажатия
     bot.edit_message_reply_markup(call.message.chat.id, call.message.message_id, reply_markup=None)
-
 
 bot.polling(none_stop=True)
